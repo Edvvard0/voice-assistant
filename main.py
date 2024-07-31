@@ -7,6 +7,7 @@ import time                    # для создания пауз между г�
 import pyttsx3                 # для озвучки текста
 
 from translate import Translator # для функции переводчик
+from token import token        # импорт токена для работы ChatGpt
 
 # Это словарь с названиями функций и фразами, которыми их можно вызвать
 commands_dict = {
@@ -121,17 +122,17 @@ def chat():
     client = OpenAI(
         # This is the default and can be omitted
         # git ignore
-        api_key='your token',
+        api_key = token,
     )
 
     chat_completion = client.chat.completions.create(
-        messages=[
+        messages = [
             {
                 "role": "user",
                 "content": vopr,
             }
         ],
-        model="gpt-3.5-turbo",
+        model = "gpt-3.5-turbo",
     )
 
     content = chat_completion.choices[0].message.content
@@ -198,7 +199,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
 
 
