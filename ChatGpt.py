@@ -3,13 +3,12 @@ from openai import OpenAI      # для работы с chat Gpt
 
 #если вы просто хотите задать вопрос ChatGpt напишите свой вопрос в переменную vopr
 
-def chat():
+def chat(vopr):
     '''Функция подключается к chatGpt и отвечает на вопрос пользователя'''
-    vopr = '' # ваш вопрос
+    vopr = vopr
 
     client = OpenAI(
-        # This is the default and can be omitted
-        # git ignore
+
         api_key=token, # ваш токен
     )
 
@@ -28,3 +27,4 @@ def chat():
     print(mytext)
 
 
+chat(vopr='') # ваш ворос
